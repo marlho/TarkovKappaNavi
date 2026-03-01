@@ -1,0 +1,430 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.container:active {
+  cursor: grabbing;
+}
+
+.placing {
+  cursor: crosshair;
+}
+.placing:active {
+  cursor: crosshair;
+}
+
+.placingHint {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-khaki);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-khaki);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.fullscreen {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 0;
+}
+
+.viewToggle {
+  position: absolute;
+  top: 8px;
+  right: 48px;
+  z-index: 200;
+  display: flex;
+}
+.viewBtn {
+  height: 32px;
+  padding: 0 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s, background-color 0.15s;
+}
+.viewBtn:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  border-right: none;
+}
+.viewBtn:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.viewBtn:hover:not(:disabled) {
+  opacity: 1;
+  color: var(--text-primary);
+}
+.viewBtnActive {
+  opacity: 1;
+  background: var(--accent-khaki);
+  color: var(--bg-primary);
+}
+.viewBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.fullscreenBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 200;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.fullscreenBtn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.surface {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ユーザーピン（共通） */
+/* ピンラッパー: 位置決めとラベル表示の基準 */
+.pinWrap {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pinWrap:hover {
+  z-index: 10;
+}
+.pinWrap:hover .userPin {
+  transform: scale(1.4);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+}
+
+.userPin {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+/* ドラッグ中のピン */
+.pinDragging {
+  z-index: 100;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  opacity: 0.85 !important;
+  cursor: grabbing;
+  transition: none;
+  pointer-events: none;
+}
+.pinDragging .userPin {
+  transform: scale(1.2);
+}
+.pinDragging .shapeDiamond {
+  transform: rotate(45deg) scale(1.2);
+}
+
+/* ピンドラッグ中のキャンバスカーソル */
+.pinDragActive {
+  cursor: grabbing;
+}
+.pinDragActive:active {
+  cursor: grabbing;
+}
+
+/* 形状: 丸 */
+.shapeCircle {
+  background: var(--pin-color);
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+/* 形状: 四角 */
+.shapeSquare {
+  background: var(--pin-color);
+  border-radius: 2px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+/* 形状: ひし形（45°回転） */
+.shapeDiamond {
+  background: var(--pin-color);
+  border-radius: 2px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  transform: rotate(45deg);
+}
+.pinWrap:hover .shapeDiamond {
+  transform: rotate(45deg) scale(1.4);
+}
+
+/* 形状: 三角（CSSクリップパスで描画） */
+.shapeTriangle {
+  background: var(--pin-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border: none;
+}
+.shapeTriangle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 形状: 星（CSSクリップパスで描画） */
+.shapeStar {
+  background: var(--pin-color);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+  border: none;
+}
+
+/* 形状: マーカー（Google Mapスタイルの逆しずく型）
+   SVGパスのベジェ曲線から計算した26点polygon
+   アスペクト比 1:1.46（SVG viewBox 136.8×200） */
+.shapeMarker {
+  height: calc(var(--marker-h, 14px) * 1.46) !important;
+  width: var(--marker-h, 14px);
+  background: var(--pin-color);
+  border: none;
+  clip-path: polygon(
+    50% 0%,
+    63% 1%,
+    75% 5%,
+    85% 10%,
+    93% 17%,
+    98% 25%,
+    100% 34%,
+    97% 46%,
+    92% 60%,
+    83% 72%,
+    75% 81%,
+    66% 90%,
+    58% 95%,
+    50% 100%,
+    42% 95%,
+    34% 90%,
+    25% 81%,
+    17% 72%,
+    8% 60%,
+    3% 46%,
+    0% 34%,
+    2% 25%,
+    7% 17%,
+    15% 10%,
+    25% 5%,
+    37% 1%
+  );
+}
+.shapeMarker::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 18%;
+  width: 64%;
+  height: 44%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+}
+.pinWrap:hover .shapeMarker {
+  transform: scale(1.4);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 0.625rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ミニマップトグルボタン */
+.minimapBtn {
+  position: absolute;
+  top: 48px;
+  right: 8px;
+  z-index: 200;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.minimapBtn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+/* ピン追加/キャンセルボタン */
+.addPinBtn {
+  position: absolute;
+  top: 88px;
+  right: 8px;
+  z-index: 200;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s, background 0.15s;
+}
+.addPinBtn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+.addPinBtnCancel {
+  opacity: 1;
+  background: var(--accent-red-dim, #5a2020);
+  color: var(--accent-red-light, #e74c3c);
+  border-color: var(--accent-red-dim, #5a2020);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.minimapBtnActive {
+  opacity: 1;
+  background: var(--accent-khaki);
+  color: var(--bg-primary);
+  border-color: var(--accent-khaki);
+}
+.minimapBtnIcon {
+  display: block;
+  width: 14px;
+  height: 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 1px;
+}
+
+/* ミニマップ */
+.minimap {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 200;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  opacity: 0.85;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+.minimap:hover {
+  opacity: 1;
+}
+.minimapImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.minimapViewport {
+  position: absolute;
+  border: 1.5px solid var(--accent-khaki);
+  background: rgba(189, 174, 128, 0.12);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    border: none;
+    border-radius: 0;
+  }
+  .viewBtn {
+    min-height: 40px;
+    padding: 0 12px;
+  }
+  .fullscreenBtn {
+    width: 40px;
+    height: 40px;
+  }
+  .minimapBtn {
+    top: 56px;
+    width: 40px;
+    height: 40px;
+  }
+  .addPinBtn {
+    top: 104px;
+    width: 36px;
+    height: 36px;
+  }
+  .minimap {
+    bottom: 80px;
+  }
+}

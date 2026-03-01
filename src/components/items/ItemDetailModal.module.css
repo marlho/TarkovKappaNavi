@@ -1,0 +1,233 @@
+/* モーダルを大きめに */
+.modal {
+  min-width: 480px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ヘッダー */
+.header {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.imageWrap {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.itemName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.tierBadge {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  background: transparent;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.wikiLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.wikiLink {
+  font-size: var(--text-xs);
+  color: var(--accent-khaki-light);
+  text-decoration: none;
+}
+.wikiLink:hover {
+  text-decoration: underline;
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.sectionTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: var(--space-xs);
+}
+
+/* タスクリスト */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.traderTag {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.kappaBadge {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--accent-khaki-light);
+}
+
+.subLabel {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* クラフト・バーターカード */
+.recipeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.recipeCard {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.recipeHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.recipeMeta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.recipeItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.recipeItemChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.recipeItemIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.arrow {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin: 0 var(--space-xs);
+}
+
+/* 購入テーブル */
+.buyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.buyTable th {
+  text-align: left;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.buyTable td {
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle, rgba(255,255,255,0.05));
+}
+
+.emptyNote {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  justify-content: center;
+  padding: var(--space-xl);
+  color: var(--text-muted);
+}

@@ -1,0 +1,171 @@
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stationImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+}
+
+.stationName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stationLevel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.levelCard {
+  padding: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.levelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.levelLabel {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.stateBuilt {
+  color: var(--status-done);
+  font-size: 0.75rem;
+}
+
+.stateBuildable {
+  color: var(--accent-khaki-light);
+  font-size: 0.75rem;
+}
+
+.stateLocked {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.reqList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+}
+
+.reqItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reqIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.reqMet {
+  color: var(--status-done);
+}
+
+.buildBtn {
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  background: var(--accent-khaki);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.buildBtn:hover {
+  background: var(--accent-khaki-light);
+}
+
+.unbuildBtn {
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.unbuildBtn:hover {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+.bonusList {
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+}
+
+.bonusItem {
+  display: flex;
+  gap: 4px;
+}
+
+.bonusValue {
+  color: var(--status-done);
+}
+
+.inventorySection {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+

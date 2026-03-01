@@ -1,0 +1,205 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-default);
+  margin-top: 8px;
+}
+
+.sectionTitle {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* 保存フォーム */
+.saveRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nameInput {
+  flex: 1 1 auto;
+  min-width: 80px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.nameInput:focus {
+  outline: none;
+  border-color: var(--accent-khaki-dim);
+}
+
+.saveBtn {
+  padding: 4px 10px;
+  font-size: 0.6875rem;
+  font-family: inherit;
+  color: var(--bg-primary);
+  background: var(--accent-khaki);
+  border: 1px solid var(--accent-khaki);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.saveBtn:hover {
+  opacity: 0.9;
+}
+.saveBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* プリセット一覧 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.presetRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+
+.presetName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.presetCount {
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.actionBtn {
+  padding: 2px 8px;
+  font-size: 0.625rem;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.applyBtn {
+  composes: actionBtn;
+  color: var(--accent-khaki);
+  background: none;
+  border: 1px solid var(--accent-khaki);
+}
+.applyBtn:hover {
+  background: var(--accent-khaki);
+  color: var(--bg-primary);
+}
+
+.removeBtn {
+  composes: actionBtn;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-default);
+}
+.removeBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.deleteBtn {
+  composes: actionBtn;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-default);
+}
+.deleteBtn:hover {
+  color: var(--accent-red-light, #e74c3c);
+  border-color: var(--accent-red-light, #e74c3c);
+}
+
+.shareBtn {
+  composes: actionBtn;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-default);
+}
+.shareBtn:hover {
+  color: var(--accent-khaki);
+  border-color: var(--accent-khaki);
+}
+
+.empty {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+
+/* 共有モーダル */
+.shareModal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0 4px;
+}
+
+.sharePresetName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.shareCount {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.shareUrlInput {
+  width: 100%;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+}
+
+.shareCopyBtn {
+  align-self: flex-end;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--bg-primary);
+  background: var(--accent-khaki);
+  border: 1px solid var(--accent-khaki);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.shareCopyBtn:hover {
+  opacity: 0.9;
+}

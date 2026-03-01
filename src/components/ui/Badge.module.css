@@ -1,0 +1,36 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+
+.done {
+  background: #1a3d2a;
+  color: var(--text-primary);
+}
+
+.inProgress {
+  background: var(--status-inprogress);
+  color: var(--bg-secondary);
+}
+
+.locked {
+  background: var(--status-locked);
+  color: var(--text-muted);
+}
+
+.kappa {
+  background: var(--accent-khaki-dim);
+  color: var(--accent-khaki-light);
+}
+
+.default {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}

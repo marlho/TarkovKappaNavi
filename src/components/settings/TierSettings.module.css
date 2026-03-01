@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tierBadge {
+  font-weight: 700;
+  font-size: 0.875rem;
+  width: 20px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.input {
+  width: 120px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--accent-khaki-dim);
+}
+
+.unit {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.error {
+  font-size: 0.6875rem;
+  color: var(--accent-red-light);
+  margin: 0;
+}
+
+.resetBtn {
+  align-self: flex-start;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.resetBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}

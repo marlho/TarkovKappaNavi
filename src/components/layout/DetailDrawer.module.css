@@ -1,0 +1,22 @@
+.drawer {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-default);
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.placeholder {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .drawer {
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    z-index: 100;
+    width: 100%;
+  }
+}

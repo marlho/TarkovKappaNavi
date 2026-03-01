@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-default);
+  margin-top: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+}
+
+.input {
+  flex: 1;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--accent-khaki-dim);
+}
+
+.btn {
+  padding: 4px 10px;
+  font-size: 0.6875rem;
+  font-family: inherit;
+  color: var(--bg-primary);
+  background: var(--accent-khaki);
+  border: 1px solid var(--accent-khaki);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.urlRow {
+  display: flex;
+  gap: 6px;
+}
+
+.urlInput {
+  flex: 1;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+
+.copyBtn {
+  padding: 4px 10px;
+  font-size: 0.6875rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.copyBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}

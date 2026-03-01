@@ -1,0 +1,48 @@
+.empty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+}
+
+.nodeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle {
+  width: 16px;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.nodeName {
+  color: var(--text-secondary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.children {
+  margin-left: 16px;
+  border-left: 2px solid var(--border-default);
+  padding-left: 8px;
+}

@@ -1,0 +1,137 @@
+.page {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.pageTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+.canvasWrapper {
+  flex: 7;
+  min-width: 0;
+}
+
+.resizeHandle {
+  width: 6px;
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  touch-action: none;
+}
+.resizeHandle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 32px;
+  border-radius: 1px;
+  background: var(--border-default);
+  transition: background 0.15s, height 0.15s;
+}
+.resizeHandle:hover::after {
+  background: var(--accent-khaki);
+  height: 48px;
+}
+
+.pinListWrapper {
+  width: 280px;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+
+/* デスクトップ: FAB非表示 */
+.mobileFabs {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 0;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pageTitle {
+    display: none;
+  }
+
+  .desktopInfoBar {
+    display: none;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .canvasWrapper {
+    flex: 1;
+  }
+
+  .pinListWrapper {
+    display: none;
+  }
+
+  .resizeHandle {
+    display: none;
+  }
+
+  /* フローティングMapSelector（左上） */
+  .mapSelectorArea {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 200;
+  }
+
+  /* フローティングFABグループ（右下） */
+  .mobileFabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    right: 16px;
+    bottom: 24px;
+    z-index: 200;
+  }
+
+  .fab {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .fab:active {
+    opacity: 0.8;
+  }
+
+  .fabActive {
+    background: var(--accent-khaki);
+    color: var(--bg-primary);
+    border-color: var(--accent-khaki);
+  }
+}

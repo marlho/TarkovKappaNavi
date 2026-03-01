@@ -1,0 +1,154 @@
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Step 1: 言語選択 */
+.langGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.langLabel {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.langBtn {
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.langBtn:hover {
+  background: var(--bg-primary);
+}
+
+.langBtn[data-active] {
+  border-color: var(--accent-khaki);
+  background: rgba(189, 174, 130, 0.1);
+  color: var(--accent-khaki);
+  font-weight: 600;
+}
+
+/* Step 2: レベル入力 */
+.levelWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.levelLabel {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Step 3: 画面ガイド */
+.guideGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.guideCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  text-align: left;
+}
+
+.guideCardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-khaki);
+}
+
+.guideCardDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Step 4: 準備完了 */
+.readyIcon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.privacyBadge {
+  font-size: 0.75rem;
+  color: var(--accent-khaki);
+  background: rgba(189, 174, 130, 0.1);
+  border: 1px solid rgba(189, 174, 130, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+}
+
+.tipList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 380px;
+}
+
+.tipItem {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.tipItem::before {
+  content: '• ';
+  color: var(--accent-khaki);
+}
+
+.hint {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 360px;
+}
+
+@media (max-width: 480px) {
+  .guideGrid {
+    grid-template-columns: 1fr;
+  }
+}

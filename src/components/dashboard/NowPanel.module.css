@@ -1,0 +1,124 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.sectionCount {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cardName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.cardName:hover {
+  color: var(--accent-khaki-light);
+  text-decoration: underline;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: 0 4px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.removeBtn:hover {
+  color: var(--accent-red-light);
+  background: none;
+}
+
+.cardTrader {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.cardObjectives {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.cardActions button {
+  font-size: 0.75rem;
+  padding: 5px 10px;
+}
+
+.btnDone {
+  background: var(--status-done);
+  color: var(--text-primary);
+  border-color: var(--status-done);
+  font-weight: 600;
+}
+
+
+.emptyAll {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

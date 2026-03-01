@@ -1,0 +1,151 @@
+/* ===== TarkovKappaNavi — Global Theme ===== */
+:root {
+  /* Background */
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #242424;
+  --bg-surface: #2a2a2a;
+
+  /* Text */
+  --text-primary: #e8e6e3;
+  --text-secondary: #9e9a93;
+  --text-muted: #6b6660;
+
+  /* Accent — khaki / military */
+  --accent-khaki: #8b7d3c;
+  --accent-khaki-light: #b5a55a;
+  --accent-khaki-dim: #5c5328;
+
+  /* Danger / alert — red */
+  --accent-red: #c0392b;
+  --accent-red-light: #e74c3c;
+  --accent-red-dim: #7b241c;
+
+  /* Status */
+  --status-done: #27ae60;
+  --status-inprogress: #b5a55a;
+  --status-locked: #4a4540;
+
+  /* Borders */
+  --border-default: #44403a;
+  --border-hover: #5c5328;
+
+  /* Aliases (referenced by components) */
+  --accent-amber: var(--accent-khaki-light);
+  --danger: var(--accent-red);
+  --accent-primary: var(--accent-khaki-light);
+  --border-primary: var(--border-default);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Misc */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+
+  /* Font size scale */
+  --text-xs: 0.6875rem;
+  --text-sm: 0.75rem;
+  --text-base: 0.8125rem;
+  --text-md: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.25rem;
+
+  /* Layout */
+  --header-height: 48px;
+  --sidebar-width: 240px;
+  --detail-width: 360px;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: var(--accent-khaki-light);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-khaki);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 0.5em 1em;
+  min-height: 36px;
+  font-size: 0.875rem;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+button:hover {
+  border-color: var(--border-hover);
+  background-color: var(--bg-tertiary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-khaki);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* Lucide SVGアイコンがクリップされるのを防止 */
+svg.lucide {
+  overflow: visible;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-sm);
+}

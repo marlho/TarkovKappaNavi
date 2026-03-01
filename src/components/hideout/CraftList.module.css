@@ -1,0 +1,76 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.craft {
+  padding: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.craftHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.duration {
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+}
+
+.taskLink {
+  font-size: 0.6875rem;
+  color: var(--accent-khaki-light);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.taskLink:hover {
+  color: var(--accent-khaki);
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.itemIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.itemName {
+  color: var(--text-secondary);
+}
+
+.itemCount {
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.label {
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rewardItems {
+  color: var(--status-done);
+}
+
+.empty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

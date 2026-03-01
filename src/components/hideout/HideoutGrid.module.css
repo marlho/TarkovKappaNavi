@@ -1,0 +1,104 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  overflow-y: auto;
+  flex: 1;
+  padding: 4px;
+}
+
+.card {
+  padding: 8px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: border-color 0.15s;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.selected {
+  border-color: var(--accent-khaki);
+}
+
+.allBuilt {
+  border-left: 3px solid var(--status-done);
+  background: rgba(39, 174, 96, 0.1);
+}
+
+.hasBuildable {
+  border-left: 3px solid var(--accent-khaki);
+}
+
+.locked {
+  border-left: 3px solid var(--status-locked);
+  opacity: 0.7;
+}
+
+.name {
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.levelInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.levelText {
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.miniBar {
+  flex: 1;
+  height: 3px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.miniBarFill {
+  height: 100%;
+  background: var(--status-done);
+  transition: width 0.2s;
+}
+
+.missingItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.missingItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.missingIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 2px;
+  background: var(--bg-secondary);
+}
+
+.missingCount {
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}

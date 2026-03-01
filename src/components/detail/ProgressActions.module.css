@@ -1,0 +1,69 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btnStart {
+  background: var(--status-inprogress);
+  color: var(--bg-secondary);
+  border-color: var(--status-inprogress);
+  font-weight: 600;
+}
+.btnStart:hover {
+  background: var(--accent-khaki-light);
+  border-color: var(--accent-khaki-light);
+}
+
+.btnDone {
+  background: var(--status-done);
+  color: var(--text-primary);
+  border-color: var(--status-done);
+  font-weight: 600;
+}
+.btnDone:hover {
+  background: var(--status-done);
+  border-color: var(--status-done);
+}
+
+.btnReset {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+.actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+}
+
+.levelModal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.levelMessage {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+}
+
+.levelInputRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.levelLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.levelActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

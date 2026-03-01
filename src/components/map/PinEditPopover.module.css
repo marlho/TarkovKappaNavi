@@ -1,0 +1,421 @@
+.popover {
+  position: absolute;
+  z-index: 300;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  min-width: 200px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* タグ入力エリア */
+.tagInputWrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: text;
+  min-height: 32px;
+  box-sizing: border-box;
+}
+.tagInputWrap:focus-within {
+  border-color: var(--accent-khaki);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  font-size: 0.6875rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  max-width: 140px;
+}
+
+.tagText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tagDelete {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin-left: 1px;
+  font-size: 0.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.tag:hover .tagDelete {
+  display: flex;
+}
+.tagDelete:hover {
+  color: var(--accent-red-light, #e74c3c);
+  background: rgba(231, 76, 60, 0.15);
+}
+
+/* モバイルでは常に✕を表示（ホバーがないため） */
+@media (hover: none) {
+  .tagDelete {
+    display: flex;
+  }
+}
+
+.tagInput {
+  flex: 1;
+  min-width: 60px;
+  padding: 2px 4px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-family: inherit;
+}
+.tagInput::placeholder {
+  color: var(--text-muted);
+}
+
+.presetChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.presetChipWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.presetChip {
+  padding: 3px 8px;
+  font-size: 0.6875rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s;
+}
+.presetChip:hover {
+  color: var(--accent-khaki);
+  border-color: var(--accent-khaki);
+}
+
+.presetChipDelete {
+  display: none;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  font-size: 0.45rem;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.presetChipWrap:hover .presetChipDelete {
+  display: flex;
+}
+.presetChipDelete:hover {
+  color: var(--accent-red-light, #e74c3c);
+  border-color: var(--accent-red-light, #e74c3c);
+}
+
+@media (hover: none) {
+  .presetChipDelete {
+    display: flex;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    font-size: 0.5rem;
+  }
+}
+
+.palette {
+  display: flex;
+  gap: 6px;
+}
+
+.colorBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.colorBtn:hover {
+  transform: scale(1.15);
+}
+
+.colorBtnActive {
+  border-color: var(--text-primary);
+  transform: scale(1.15);
+}
+
+.shapePalette {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shapeLabel {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.shapeRow {
+  display: flex;
+  gap: 4px;
+}
+
+.shapeBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.shapeBtn:hover {
+  transform: scale(1.1);
+}
+
+.shapeBtnActive {
+  border-color: var(--accent-khaki);
+  transform: scale(1.1);
+}
+
+/* 形状プレビュー共通コンテナ */
+.shapePreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+/* --- 各形状プレビュー（マップ上と同じCSS） --- */
+
+.previewCircle {
+  width: 12px;
+  height: 12px;
+  background: var(--preview-color);
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.previewSquare {
+  width: 11px;
+  height: 11px;
+  background: var(--preview-color);
+  border-radius: 1px;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.previewDiamond {
+  width: 10px;
+  height: 10px;
+  background: var(--preview-color);
+  border-radius: 1px;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  transform: rotate(45deg);
+}
+
+.previewTriangle {
+  width: 13px;
+  height: 13px;
+  background: var(--preview-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.previewStar {
+  width: 14px;
+  height: 14px;
+  background: var(--preview-color);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+}
+
+.previewMarker {
+  width: 11px;
+  height: 16px;
+  background: var(--preview-color);
+  clip-path: polygon(
+    50% 0%, 63% 1%, 75% 5%, 85% 10%, 93% 17%, 98% 25%,
+    100% 34%, 97% 46%, 92% 60%, 83% 72%, 75% 81%, 66% 90%,
+    58% 95%, 50% 100%, 42% 95%, 34% 90%, 25% 81%, 17% 72%,
+    8% 60%, 3% 46%, 0% 34%, 2% 25%, 7% 17%, 15% 10%,
+    25% 5%, 37% 1%
+  );
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.saveBtn {
+  flex: 1;
+  padding: 5px 10px;
+  background: var(--accent-khaki);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.saveBtn:hover {
+  opacity: 0.9;
+}
+
+.deleteBtn {
+  padding: 5px 10px;
+  background: var(--accent-red);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.deleteBtn:hover {
+  opacity: 0.9;
+}
+
+.cancelBtn {
+  padding: 5px 10px;
+  background: none;
+  color: var(--text-muted);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.cancelBtn:hover {
+  color: var(--text-secondary);
+  border-color: var(--border-hover);
+  background: none;
+}
+
+@media (max-width: 768px) {
+  .popover {
+    position: fixed !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    top: auto !important;
+    min-width: unset;
+    width: auto;
+    z-index: 500;
+  }
+  .tagInputWrap {
+    min-height: 44px;
+    padding: 6px 8px;
+    gap: 6px;
+  }
+  .tag {
+    padding: 4px 8px;
+    font-size: 0.8125rem;
+    border-radius: 12px;
+  }
+  .tagDelete {
+    width: 18px;
+    height: 18px;
+    font-size: 0.625rem;
+  }
+  .tagInput {
+    padding: 4px;
+    font-size: 1rem;
+  }
+  .colorBtn {
+    width: 36px;
+    height: 36px;
+  }
+  .shapeBtn {
+    width: 40px;
+    height: 40px;
+  }
+  .previewCircle {
+    width: 16px;
+    height: 16px;
+  }
+  .previewSquare {
+    width: 14px;
+    height: 14px;
+  }
+  .previewDiamond {
+    width: 13px;
+    height: 13px;
+  }
+  .previewTriangle {
+    width: 17px;
+    height: 17px;
+  }
+  .previewStar {
+    width: 18px;
+    height: 18px;
+  }
+  .previewMarker {
+    width: 14px;
+    height: 20px;
+  }
+  .presetChip {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+    min-height: 36px;
+  }
+  .saveBtn,
+  .deleteBtn,
+  .cancelBtn {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+}

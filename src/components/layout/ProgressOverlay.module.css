@@ -1,0 +1,38 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
+  pointer-events: auto;
+}
+
+.overlay[data-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.title {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent-khaki-light);
+  margin-bottom: 2rem;
+}
+
+.barWrap {
+  width: min(360px, 80vw);
+}
+
+.label {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}

@@ -1,0 +1,47 @@
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.message {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.success {
+  color: var(--status-done);
+  background: rgba(39, 174, 96, 0.1);
+}
+
+.error {
+  color: var(--accent-red-light);
+  background: rgba(192, 57, 43, 0.1);
+}
+
+.summary {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 8px 0;
+  padding: 8px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.confirmButtons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btnPrimary {
+  background: var(--accent-khaki);
+  color: var(--text-primary);
+  border-color: var(--accent-khaki);
+  font-weight: 600;
+}

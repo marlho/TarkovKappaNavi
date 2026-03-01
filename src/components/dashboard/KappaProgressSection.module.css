@@ -1,0 +1,69 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.mainStats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mainBar {
+  flex: 1;
+  max-width: 400px;
+}
+
+.statText {
+  font-size: 0.875rem;
+  color: var(--accent-khaki-light);
+  white-space: nowrap;
+}
+
+.traders {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.traderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+
+.traderName {
+  width: 100px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.traderBar {
+  flex: 1;
+  max-width: 200px;
+}
+
+.traderStat {
+  color: var(--text-muted);
+  width: 80px;
+  text-align: right;
+  flex-shrink: 0;
+}

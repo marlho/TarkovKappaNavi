@@ -1,0 +1,57 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.empty {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.levelHeader {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-khaki);
+}
+
+.taskRow {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+.taskRow:hover {
+  color: var(--text-primary);
+}
+
+.traderHint {
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.kappaHint {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--accent-khaki-light);
+  background: var(--accent-khaki-dim);
+  padding: 0 4px;
+  border-radius: var(--radius-sm);
+  margin-left: 4px;
+}

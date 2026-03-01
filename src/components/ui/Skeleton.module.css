@@ -1,0 +1,31 @@
+.skeleton {
+  background: var(--bg-tertiary, #242424);
+  border-radius: var(--radius-md);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.line {
+  background: var(--bg-tertiary, #242424);
+  border-radius: var(--radius-md);
+  height: 1em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.lineLast {
+  width: 60%;
+}

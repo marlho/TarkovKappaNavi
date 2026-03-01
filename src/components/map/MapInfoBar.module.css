@@ -1,0 +1,68 @@
+.infoBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.statLabel {
+  color: var(--text-muted);
+}
+
+.statValue {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-default);
+}
+
+.bossList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bossTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+}
+
+.bossChance {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+.wikiLink {
+  margin-left: auto;
+  color: var(--accent-khaki);
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.wikiLink:hover {
+  text-decoration: underline;
+}

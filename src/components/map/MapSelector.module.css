@@ -1,0 +1,27 @@
+.select {
+  width: 100%;
+  max-width: 280px;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+}
+.select:focus {
+  border-color: var(--accent-khaki);
+}
+
+@media (max-width: 768px) {
+  .select {
+    max-width: 180px;
+    min-height: 40px;
+    padding: 8px 12px;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+  }
+}
