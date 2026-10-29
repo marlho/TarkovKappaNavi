@@ -1,18 +1,11 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { gqlFetch } from './graphql';
-import { tasksQuery, mapsQuery, tradersQuery, hideoutQuery, ITEMS_QUERY, ITEM_DETAIL_QUERY } from './queries';
+import { fetchTasks, fetchMaps, fetchTraders, fetchHideout, fetchItems, fetchItemDetail } from './jsonApi';
 import { normalizeTasks, normalizeMaps, normalizeHideout, normalizeItems, normalizeItemDetail } from './normalize';
 import { useLang } from '../i18n';
 import { useTierThresholds } from '../stores/tierStore';
 import { calcTier } from './normalize';
 import type {
-  TasksResponse,
-  MapsResponse,
-  TradersResponse,
-  HideoutStationsResponse,
-  ItemsResponse,
-  ItemDetailResponse,
   NormalizedTasks,
   NormalizedHideout,
   NormalizedItems,
@@ -35,7 +28,7 @@ export function useTasks() {
   return useQuery<NormalizedTasks>({
     queryKey: ['tasks', lang],
     queryFn: async () => {
-      const data = await gqlFetch<TasksResponse>(tasksQuery(lang));
+      const data = await fetchTasks(lang);
       return normalizeTasks(data.tasks);
     },
     ...queryDefaults,
@@ -47,7 +40,7 @@ export function useMaps() {
   return useQuery<MapModel[]>({
     queryKey: ['maps', lang],
     queryFn: async () => {
-      const data = await gqlFetch<MapsResponse>(mapsQuery(lang));
+      const data = await fetchMaps(lang);
       return normalizeMaps(data.maps);
     },
     ...queryDefaults,
@@ -59,7 +52,7 @@ export function useMapsEn() {
   return useQuery<MapModel[]>({
     queryKey: ['maps', 'en'],
     queryFn: async () => {
-      const data = await gqlFetch<MapsResponse>(mapsQuery('en'));
+      const data = await fetchMaps('en');
       return normalizeMaps(data.maps);
     },
     ...queryDefaults,
@@ -71,7 +64,7 @@ export function useTraders() {
   return useQuery<TraderModel[]>({
     queryKey: ['traders', lang],
     queryFn: async () => {
-      const data = await gqlFetch<TradersResponse>(tradersQuery(lang));
+      const data = await fetchTraders(lang);
       return data.traders.map((t) => ({
         id: t.id,
         name: t.name,
@@ -87,7 +80,7 @@ export function useHideoutStations() {
   return useQuery<NormalizedHideout>({
     queryKey: ['hideoutStations', lang],
     queryFn: async () => {
-      const data = await gqlFetch<HideoutStationsResponse>(hideoutQuery(lang));
+      const data = await fetchHideout(lang);
       return normalizeHideout(data.hideoutStations);
     },
     ...queryDefaults,
@@ -99,7 +92,7 @@ export function useItems() {
   const query = useQuery<NormalizedItems>({
     queryKey: ['items'],
     queryFn: async () => {
-      const data = await gqlFetch<ItemsResponse>(ITEMS_QUERY);
+      const data = await fetchItems();
       return normalizeItems(data.itemsJa, data.itemsEn);
     },
     ...queryDefaults,
@@ -124,7 +117,7 @@ export function useItemDetail(id: string | null) {
     queryKey: ['itemDetail', id],
     queryFn: async () => {
       if (!id) return null;
-      const data = await gqlFetch<ItemDetailResponse>(ITEM_DETAIL_QUERY, { ids: [id] });
+      const data = await fetchItemDetail(id);
       const ja = data.ja[0];
       if (!ja) return null;
       const en = data.en.find((e) => e.id === id);

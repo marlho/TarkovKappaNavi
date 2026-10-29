@@ -46,7 +46,7 @@ function HideoutSkeleton() {
 
 export function HideoutPage() {
   const t = useT();
-  const { data: hideout, isLoading } = useHideoutStations();
+  const { data: hideout, isLoading, error } = useHideoutStations();
   const { builtLevelIds } = useHideoutProgressMap();
   const selectedStationId = useHideoutStore((s) => s.selectedStationId);
   const mobileTab = useHideoutStore((s) => s.mobileTab);
@@ -72,7 +72,9 @@ export function HideoutPage() {
       </Helmet>
       <h1 className={styles.pageTitle}>{t.hideout_page_title}</h1>
 
-      {isLoading || !hideout ? (
+      {error ? (
+        <div style={{ color: 'var(--accent-red)' }}>{t.items_fetch_error.replace('{error}', (error as Error).message)}</div>
+      ) : isLoading || !hideout ? (
         <HideoutSkeleton />
       ) : (
         <>

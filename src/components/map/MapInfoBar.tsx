@@ -7,8 +7,8 @@ interface MapInfoBarProps {
 }
 
 export function MapInfoBar({ map }: MapInfoBarProps) {
-  const pmcExtracts = map.extracts.filter((e) => e.faction !== 'Scav');
-  const scavExtracts = map.extracts.filter((e) => e.faction === 'Scav');
+  const pmcExtracts = map.extracts.filter((e) => e.faction.toLowerCase() !== 'scav');
+  const scavExtracts = map.extracts.filter((e) => e.faction.toLowerCase() === 'scav');
 
   return (
     <div className={styles.infoBar}>
