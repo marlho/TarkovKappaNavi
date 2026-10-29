@@ -1,4 +1,4 @@
-// ─── API生レスポンス型 ───
+// ─── API生レスポンス型（GraphQL 時代の形。jsonApi.ts がこの形に組み立てる） ───
 
 export interface ApiRef {
   id: string;

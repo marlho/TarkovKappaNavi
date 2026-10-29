@@ -33,7 +33,7 @@ const MAX_PANEL_WIDTH = 500;
 
 export function MapPage() {
   const t = useT();
-  const { data: maps, isLoading: mapsLoading } = useMaps();
+  const { data: maps, isLoading: mapsLoading, error: mapsError } = useMaps();
   const wipeId = useProfileStore((s) => s.wipeId);
   const [selectedMapId, setSelectedMapId] = useState<string | null>(
     () => localStorage.getItem(LS_KEY_LAST_MAP),
@@ -250,7 +250,9 @@ export function MapPage() {
       </Helmet>
       <h1 className={styles.pageTitle}>{t.map_page_title}</h1>
 
-      {mapsLoading ? (
+      {mapsError ? (
+        <div style={{ color: 'var(--accent-red)' }}>{t.items_fetch_error.replace('{error}', (mapsError as Error).message)}</div>
+      ) : mapsLoading ? (
         <>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             {Array.from({ length: 8 }, (_, i) => (
